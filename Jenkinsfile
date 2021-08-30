@@ -1,16 +1,10 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent any
+    agent { docker 'python:3.5.1' }
     stages {
-        stage('Deploy') {
+        stage('build') {
             steps {
-                retry(3) {
-                    sh './flakey-deploy.sh'
-                }
-
-                timeout(time: 3, unit: 'MINUTES') {
-                    sh './health-check.sh'
-                }
+                sh 'python --version'
             }
         }
     }
