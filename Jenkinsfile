@@ -1,10 +1,13 @@
-
+Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker 'python:3.5.1' }
+    agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
     stages {
-        stage('build') {
+        stage('Example') {
             steps {
-                sh 'python --version'
+                echo "${params.Greeting} World!"
             }
         }
     }
