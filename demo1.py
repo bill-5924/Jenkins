@@ -48,6 +48,7 @@ def sort_lst(input_lst, min_to_max=True):
     sorted_lst.reverse()
     return sorted_lst
 
+print("OK.........")
 print('list max element is: ', get_max_element(lst))
 print('list average is: ', get_lst_avg(lst))
 no_repeat_lst = del_repeat_element(lst)
